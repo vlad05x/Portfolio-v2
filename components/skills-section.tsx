@@ -1,49 +1,54 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Card, CardContent } from "@/components/ui/card"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Tooltip, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import Image from "next/image";
+import {
+  ReactIcon,
+  NextIcon,
+  JavaScriptIcon,
+  TypeScriptIcon,
+  NodeJsIcon,
+  ReduxIcon,
+  HtmlIcon,
+  CssIcon,
+} from "@/components/Icons";
 
 export default function SkillsSection() {
   const skillCategories = [
     {
       title: "Frontend",
       skills: [
-        { name: "React.js", level: 95 },
-        { name: "TypeScript", level: 90 },
-        { name: "Next.js", level: 85 },
-        { name: "Redux", level: 80 },
-        { name: "Tailwind CSS", level: 90 },
-        { name: "SASS/CSS", level: 85 },
-        { name: "HTML5", level: 95 },
+        { name: "React.js", level: 100 },
+        { name: "Next.js", level: 100 },
+        { name: "JavaScript", level: 100 },
+        { name: "TypeScript", level: 100 },
+        { name: "Redux", level: 100 },
+        { name: "Electron.js", level: 100 },
+        { name: "Tailwind CSS", level: 100 },
+        { name: "SASS/CSS", level: 100 },
+        { name: "HTML5", level: 100 },
       ],
     },
     {
       title: "Backend",
       skills: [
-        { name: "Node.js", level: 75 },
-        { name: "Express.js", level: 70 },
-        { name: "MongoDB", level: 65 },
-        { name: "MySQL", level: 60 },
+        { name: "Node.js", level: 100 },
+        { name: "Express.js", level: 100 },
+        { name: "MongoDB", level: 100 },
+        { name: "MySQL", level: 100 },
       ],
     },
     {
       title: "Other",
       skills: [
-        { name: "React Native", level: 70 },
-        { name: "Figma", level: 75 },
-        { name: "Git", level: 85 },
+        { name: "React Native", level: 100 },
+        { name: "Figma", level: 100 },
+        { name: "Git", level: 100 },
       ],
     },
-  ]
-
-  const chartData = [
-    { name: "React", value: 95 },
-    { name: "TypeScript", value: 90 },
-    { name: "Next.js", value: 85 },
-    { name: "Node.js", value: 75 },
-    { name: "UI/UX", value: 80 },
-  ]
+  ];
 
   return (
     <section id="skills" className="py-20 bg-black/50">
@@ -87,7 +92,6 @@ export default function SkillsSection() {
                                   initial={{ width: 0 }}
                                   whileInView={{ width: `${skill.level}%` }}
                                   viewport={{ once: true }}
-                                  transition={{ duration: 1, delay: 0.2 + index * 0.1 }}
                                 ></motion.div>
                               </div>
                               <span className="text-center text-sm font-medium text-zinc-300 group-hover:text-[#9ccc3d]">
@@ -95,9 +99,6 @@ export default function SkillsSection() {
                               </span>
                             </motion.div>
                           </TooltipTrigger>
-                          <TooltipContent>
-                            <p>Proficiency: {skill.level}%</p>
-                          </TooltipContent>
                         </Tooltip>
                       </TooltipProvider>
                     ))}
@@ -120,19 +121,15 @@ export default function SkillsSection() {
               <h3 className="mb-6 text-center text-xl font-semibold text-white">Tools & Technologies</h3>
 
               <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-                {[
-                  { name: "React", icon: "⚛️" },
-                  { name: "TypeScript", icon: "TS" },
-                  { name: "Next.js", icon: "N" },
-                  { name: "Redux", icon: "⟲" },
-                  { name: "Node.js", icon: "🟢" },
-                  { name: "MongoDB", icon: "🍃" },
-                  { name: "Git", icon: "⎇" },
-                  { name: "Tailwind", icon: "🌊" },
-                  { name: "Figma", icon: "🎨" },
-                  { name: "Jest", icon: "🃏" },
-                  { name: "GraphQL", icon: "◮" },
-                  { name: "Docker", icon: "🐳" },
+                {[ 
+                  { name: "React", icon: <Image src={ReactIcon} alt="React" width={32} height={32} /> }, 
+                  { name: "Next.js", icon: <Image src={NextIcon} alt="React" width={32} height={32} /> }, 
+                  { name: "JavaScript", icon: <Image src={JavaScriptIcon} alt="React" width={32} height={32} /> },
+                  { name: "TypeScript", icon: <Image src={TypeScriptIcon} alt="React" width={32} height={32} /> },
+                  { name: "Redux", icon: <Image src={ReduxIcon} alt="React" width={32} height={32} /> },
+                  { name: "Node.js", icon: <Image src={NodeJsIcon} alt="React" width={32} height={32} /> },
+                  { name: "HTML5", icon: <Image src={HtmlIcon} alt="React" width={32} height={32} /> },
+                  { name: "CSS", icon: <Image src={CssIcon} alt="React" width={32} height={32} /> },
                 ].map((tool, index) => (
                   <motion.div
                     key={tool.name}
@@ -143,7 +140,7 @@ export default function SkillsSection() {
                     transition={{ duration: 0.3, delay: index * 0.05 }}
                     whileHover={{ y: -5 }}
                   >
-                    <div className="mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-zinc-800 text-3xl">
+                    <div className="mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-zinc-800">
                       {tool.icon}
                     </div>
                     <span className="font-medium text-zinc-300">{tool.name}</span>
@@ -155,6 +152,5 @@ export default function SkillsSection() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
-
