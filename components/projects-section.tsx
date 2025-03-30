@@ -7,94 +7,173 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Github, ExternalLink, X, ChevronLeft, ChevronRight } from "lucide-react"
-import Image from "next/image"
+import Image, { StaticImageData } from "next/image"
+import PortfolioImg from "../public/images/portfolio-beauty-logo.png";
+import MovieFinderIcon from "../public/images/movie-finderIcon.png";
+import TrellotionImg from "../public/images/trellotionImg.png";
+import FoodDxImg from "../public/images/FoodDX.png";
+import BasketBallImg from "../public/images/BasketballMania.png";
+import LanguageLearnImg from "../public/images/LanguageLearning.png";
+import MovieAppIcon from "../public/images/movie-appLogo.png";
+import DiGiImg from "../public/images/Di-Gi_img.png";
+import RGymImg from "../public/images/RGym.png";
+import LymaImg from "../public/images/Site_lyma.png";
 
 type Project = {
-  id: number
-  title: string
-  description: string
-  image: string
-  technologies: string[]
-  githubUrl: string
-  demoUrl: string
-  longDescription: string
-}
+  id: number;
+  title: string;
+  description: string;
+  image: string | StaticImageData;
+  technologies: string[];
+  githubUrl: string;
+  demoUrl: string;
+  longDescription: string;
+};
 
 export default function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
   const [currentPage, setCurrentPage] = useState(1)
-  const projectsPerPage = 3
+  const projectsPerPage = 6
 
   const projects: Project[] = [
     {
       id: 1,
-      title: "E-Commerce Dashboard",
-      description: "A comprehensive dashboard for e-commerce analytics and management.",
-      image: "/placeholder.svg?height=400&width=600",
-      technologies: ["React", "TypeScript", "Redux", "Tailwind CSS", "Chart.js"],
-      githubUrl: "#",
-      demoUrl: "#",
+      title: "Portfolio-beauty",
+      description:
+        "Here you will find works that reflect a unique approach and style.",
+      image: PortfolioImg,
+      technologies: ["React", "JavaScript", "SCSS / CSS"],
+      githubUrl: "https://github.com/vlad05x/portfolio-beauty",
+      demoUrl: "https://vlad05x.github.io/portfolio-beauty/",
       longDescription:
-        "A fully-featured e-commerce dashboard that provides real-time analytics, inventory management, and order processing. Built with React and TypeScript, it features a responsive design that works seamlessly across all devices. The dashboard includes interactive charts for sales analysis, a product management system, and a customer relationship module.",
+        "This project was developed as a freelance task to create a portfolio website for a beauty salon. Built using React and JavaScript, the website features a responsive design that ensures smooth functionality across all devices. It offers a modern, user-friendly interface, allowing clients to easily explore the salon's services and make appointments. The design focuses on enhancing the user experience while maintaining the salon's brand identity.",
     },
     {
       id: 2,
-      title: "Social Media App",
-      description: "A modern social networking platform with real-time features.",
-      image: "/placeholder.svg?height=400&width=600",
-      technologies: ["React", "Node.js", "Socket.io", "MongoDB", "Express"],
-      githubUrl: "#",
-      demoUrl: "#",
+      title: "Movie-finder",
+      description:
+        "An app that helps you choose a movie to watch by generating random recommendations based on your preferences.",
+      image: MovieFinderIcon,
+      technologies: [
+        "React",
+        "TypeScript",
+        "MUI (Material UI)",
+        "Tailwind CSS",
+        "REST API",
+      ],
+      githubUrl: "https://github.com/vlad05x/movie-finder",
+      demoUrl: "https://vlad05x.github.io/movie-finder/",
       longDescription:
-        "A full-stack social media application that enables users to connect, share content, and interact in real-time. The frontend is built with React, while the backend uses Node.js and Express. Real-time features like chat and notifications are implemented using Socket.io. The app includes user authentication, profile management, post creation with media upload, and a responsive design.",
+        "This app helps users discover new movies by providing random recommendations based on their preferences, such as genre or rating. Built with React, it offers a smooth, interactive experience. The app leverages an external API to fetch movie data, ensuring up-to-date and diverse suggestions. It’s perfect for those who want quick, personalized recommendations and enjoy exploring new films.",
     },
     {
       id: 3,
-      title: "Task Management System",
-      description: "A collaborative task management tool for teams and individuals.",
-      image: "/placeholder.svg?height=400&width=600",
-      technologies: ["React", "TypeScript", "Next.js", "Prisma", "PostgreSQL"],
-      githubUrl: "#",
-      demoUrl: "#",
+      title: "Trellotion",
+      description:
+        "An application that will help you with saving tasks you need to do.",
+      image: TrellotionImg,
+      technologies: [
+        "React",
+        "JavaScript",
+        "Redux",
+        "Electron.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "SCSS / CSS",
+        "Responsive"
+      ],
+      githubUrl: "https://github.com/vlad05x/Trellotion-v2",
+      demoUrl: "https://trellotion-v2.vercel.app/",
       longDescription:
-        "A comprehensive task management system designed for both individual users and teams. It features drag-and-drop task organization, priority setting, deadline management, and team collaboration tools. Built with Next.js and TypeScript, it offers server-side rendering for optimal performance and SEO. The backend uses Prisma ORM with a PostgreSQL database for efficient data management.",
+        "This project integrates both a backend and a database to efficiently manage and store user data, tables, and task cards. The application is inspired by Trello, offering a similar board and card interface for task management. Users can create, organize, and track their tasks seamlessly. The backend is designed to handle user authentication and store data persistently, ensuring that your tasks are always available and up-to-date.",
     },
     {
       id: 4,
-      title: "Weather Forecast App",
-      description: "A beautiful weather application with detailed forecasts.",
-      image: "/placeholder.svg?height=400&width=600",
-      technologies: ["React", "TypeScript", "OpenWeather API", "Framer Motion"],
-      githubUrl: "#",
-      demoUrl: "#",
+      title: "FoodDX",
+      description:
+        "Discover a unique combination of excellent cuisine and attentive service. Come and enjoy a unique gastronomic experience with us.",
+      image: FoodDxImg,
+      technologies: ["JavaScript", "HTML5", "CSS3", "Figma", "Responsive"],
+      githubUrl: "https://github.com/vlad05x/FoodDX",
+      demoUrl: "https://vlad05x.github.io/FoodDX/",
       longDescription:
-        "An elegant weather forecast application that provides current conditions and forecasts for any location worldwide. The app features beautiful visualizations of weather data, including temperature, humidity, wind speed, and precipitation. Built with React and TypeScript, it uses the OpenWeather API for accurate data and Framer Motion for smooth animations and transitions.",
+        "Welcome to FoodDX, where culinary excellence meets unforgettable dining experiences. Our menu features a fusion of flavors crafted with the finest ingredients, designed to delight every palate. Whether you're here for a casual meal or a special celebration, our welcoming atmosphere and exceptional service will ensure your visit is memorable. Discover the taste of quality, only at FoodDX — where food is art",
     },
     {
       id: 5,
-      title: "Fitness Tracker",
-      description: "A personal fitness tracking application with progress visualization.",
-      image: "/placeholder.svg?height=400&width=600",
-      technologies: ["React", "TypeScript", "Firebase", "Recharts", "Tailwind CSS"],
-      githubUrl: "#",
-      demoUrl: "#",
+      title: "BasketballMania",
+      description:
+        "An online store entirely dedicated to basketball, where you'll find everything you need from professional gear to accessories for the game.",
+      image: BasketBallImg,
+      technologies: ["HTML5", "CSS3", "JavaScript", "Bootstrap", "PHP", "MySQL", "Responsive"],
+      githubUrl: "https://github.com/vlad05x/basketball-shop",
+      demoUrl: "https://vlad05x.github.io/basketball-shop/",
       longDescription:
-        "A comprehensive fitness tracking application that helps users monitor their workouts, nutrition, and overall progress. The app includes features for creating custom workout routines, tracking daily activities, setting goals, and visualizing progress over time. Built with React and TypeScript, it uses Firebase for authentication and data storage, and Recharts for data visualization.",
+        "BasketballGear is an online store dedicated to basketball enthusiasts, offering a wide range of products from professional gear to essential accessories for the game. Whether you're a player, coach, or fan, you'll find everything you need to enhance your basketball experience. This platform is built using HTML5, CSS3, JavaScript, Bootstrap, PHP, and MySQL, ensuring a smooth and responsive shopping experience for all users.",
     },
     {
       id: 6,
-      title: "Recipe Finder",
-      description: "A recipe discovery app with filtering and saving capabilities.",
-      image: "/placeholder.svg?height=400&width=600",
-      technologies: ["React", "Context API", "Spoonacular API", "CSS Modules"],
-      githubUrl: "#",
-      demoUrl: "#",
+      title: "Language-learning",
+      description:
+        "An app for learning new words that turns the memorization process into a fun and effective activity.",
+      image: LanguageLearnImg,
+      technologies: ["React", "TypeScript", "MUI (Material UI)", "Tailwind CSS", "Responsive"],
+      githubUrl: "https://github.com/vlad05x/Language-learning",
+      demoUrl: "http://vlad05x.github.io/Language-learning/",
       longDescription:
-        "A recipe discovery application that helps users find recipes based on ingredients, dietary restrictions, and cuisine preferences. The app features a clean, intuitive interface for browsing recipes, detailed cooking instructions, nutritional information, and the ability to save favorites. Built with React and the Context API for state management, it integrates with the Spoonacular API for comprehensive recipe data.",
+        "This application helps users learn new words by transforming the memorization process into an engaging and effective experience. Through interactive exercises and a user-friendly interface, it enhances vocabulary retention while making learning enjoyable. Built with React, TypeScript, MUI (Material UI), and Tailwind CSS, the app ensures a smooth, responsive, and visually appealing experience. Whether you're expanding your vocabulary for personal growth or language learning, this tool makes the process seamless and fun.",
+    },
+    {
+      id: 7,
+      title: "Movie-app",
+      description:
+        "An app that helps you find movies",
+      image: MovieAppIcon,
+      technologies: ["Next.js", "TypeScript", "CSS3", "Rest API", "Responsive"],
+      githubUrl: "https://github.com/vlad05x/Language-learning",
+      demoUrl: "http://vlad05x.github.io/Language-learning/",
+      longDescription:
+        "An application that helps you find movies by searching for titles and displaying all matching results. It provides a fast and efficient way to explore films, making it easy to discover the right one. Built with Next.js, TypeScript, CSS3, and REST API, the app delivers a seamless and responsive user experience. Whether you're looking for a specific movie or exploring different options, this tool makes searching effortless.",
+    },
+    {
+      id: 8,
+      title: "Di-Gi",
+      description:
+        "A full-cycle digital agency focused on the best results for our clients in marketing, sales and management.",
+      image: DiGiImg,
+      technologies: ["HTML5", "CSS3", "JavaScript", "Responsive"],
+      githubUrl: "https://github.com/vlad05x/movie-app",
+      demoUrl: "https://movie-app-chi-swart.vercel.app/",
+      longDescription:
+        "A full-cycle digital agency dedicated to delivering top results in marketing, sales, and business management. Our goal is to create impactful digital solutions that drive growth and enhance brand presence. This project was developed after completing a section of a professional course, applying industry best practices. Built with HTML5, CSS3, JavaScript, and Responsive design, the website ensures seamless performance across all devices while maintaining a sleek and modern look.",
+    },
+    {
+      id: 9,
+      title: "RGym",
+      description:
+        "Do you want to train? Join our community and start your journey to health and great shape today!",
+      image: RGymImg,
+      technologies: ["HTML5", "CSS3", "JavaScript", "Responsive"],
+      githubUrl: "https://github.com/vlad05x/RGym",
+      demoUrl: "https://vlad05x.github.io/RGym/",
+      longDescription:
+        "A modern and dynamic landing page designed for a gym, showcasing its facilities, services, and membership options. The website provides an engaging user experience, helping potential clients explore training programs, schedules, and pricing with ease. Built with HTML5, CSS3, JavaScript, and Responsive design, it ensures smooth navigation and optimal performance on all devices. Whether you're a fitness enthusiast or a beginner, this site delivers all the essential information to get started on your fitness journey.",
+    },
+    {
+      id: 10,
+      title: "Lyma",
+      description:
+        "We offer everything you need to create a unique look and care for your skin. Trust us and enjoy confidence and beauty every day!",
+      image: LymaImg,
+      technologies: ["HTML5", "CSS3", "JavaScript", "Responsive"],
+      githubUrl: "https://github.com/vlad05x/Lymo",
+      demoUrl: "https://vlad05x.github.io/Lymo/",
+      longDescription:
+        "We provide everything you need to craft a unique style and take care of your skin with high-quality products. Our selection ensures that you can enhance your beauty routine with confidence and ease. Trust us to deliver the best in skincare and personal care, helping you feel radiant and empowered every day.",
     },
   ]
 
-  // Pagination logic
   const totalPages = Math.ceil(projects.length / projectsPerPage)
   const indexOfLastProject = currentPage * projectsPerPage
   const indexOfFirstProject = indexOfLastProject - projectsPerPage
@@ -170,7 +249,7 @@ export default function ProjectsSection() {
                   <Button
                     size="sm"
                     variant="outline"
-                    className="border-zinc-600 text-zinc-300 hover:border-[#9ccc3d] hover:bg-[#9ccc3d]/10 hover:text-[#9ccc3d]"
+                    className="border-zinc-600 text-zinc-800 hover:border-[#9ccc3d] hover:bg-[#9ccc3d]/10 hover:text-[#9ccc3d]"
                     onClick={(e) => {
                       e.stopPropagation()
                       window.open(project.githubUrl, "_blank")
