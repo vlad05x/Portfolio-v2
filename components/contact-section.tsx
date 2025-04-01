@@ -8,7 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, MessageSquare } from "lucide-react";
+import { Github, Linkedin, Mail, MessageSquare, Instagram, Send } from "lucide-react";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -79,10 +79,10 @@ export default function ContactSection() {
                   <div className="flex items-center">
                     <Mail className="mr-3 h-5 w-5 text-[#9ccc3d]" />
                     <a
-                      href="mailto:vlad.honcharenko@example.com"
+                      href="mailto:organizm777alf@gmail.com"
                       className="text-zinc-300 hover:text-[#9ccc3d]"
                     >
-                      vlad.honcharenko@example.com
+                      organizm777alf@gmail.com
                     </a>
                   </div>
                   <div className="flex items-center">
@@ -100,7 +100,7 @@ export default function ContactSection() {
                 </h4>
                 <div className="flex space-x-4">
                   <a
-                    href="#"
+                    href="https://github.com/vlad05x"
                     className="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-700 text-white transition-all hover:bg-[#9ccc3d] hover:text-black"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -108,12 +108,28 @@ export default function ContactSection() {
                     <Github className="h-5 w-5" />
                   </a>
                   <a
-                    href="#"
+                    href="https://www.linkedin.com/in/vlad-honcharenko-4a003228b/"
                     className="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-700 text-white transition-all hover:bg-[#9ccc3d] hover:text-black"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <Linkedin className="h-5 w-5" />
+                  </a>
+                  <a
+                    href="https://t.me/vlad05x"
+                    className="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-700 text-white transition-all hover:bg-[#9ccc3d] hover:text-black"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Send className="h-5 w-5" />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/vlad05x/"
+                    className="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-700 text-white transition-all hover:bg-[#9ccc3d] hover:text-black"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Instagram className="h-5 w-5" />
                   </a>
                 </div>
               </div>

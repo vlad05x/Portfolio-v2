@@ -21,27 +21,11 @@ export default function TestimonialsSection() {
   const testimonials: Testimonial[] = [
     {
       id: 1,
-      name: "Sarah Johnson",
-      position: "CTO",
-      company: "TechSolutions Inc.",
-      avatar: "/placeholder.svg?height=80&width=80",
+      name: "Pasha Shavlenkov",
+      position: "Backend Laravel Developer",
+      company: "",
+      avatar: "https://media.licdn.com/dms/image/v2/D4E35AQGQDkyJ5lasdA/profile-framedphoto-shrink_200_200/profile-framedphoto-shrink_200_200/0/1719447236109?e=1743933600&v=beta&t=5yF2K_rtdDrwc6h71VGxIL4Ii5jpkwopRzhY86F9M-g",
       text: "John is an exceptional React developer who consistently delivers high-quality code. His attention to detail and problem-solving skills are outstanding. He transformed our legacy application into a modern, responsive platform that our users love.",
-    },
-    {
-      id: 2,
-      name: "Michael Chen",
-      position: "Product Manager",
-      company: "InnovateSoft",
-      avatar: "/placeholder.svg?height=80&width=80",
-      text: "Working with John was a pleasure. He not only implemented our designs perfectly but also suggested improvements that enhanced the user experience. His deep knowledge of React and TypeScript significantly improved our application's performance.",
-    },
-    {
-      id: 3,
-      name: "Emily Rodriguez",
-      position: "Lead Designer",
-      company: "CreativeWorks",
-      avatar: "/placeholder.svg?height=80&width=80",
-      text: "John is a developer who truly understands design. He translated our complex UI mockups into flawless code with impressive attention to detail. His ability to collaborate effectively with our design team made the entire process smooth and efficient.",
     },
   ]
 
