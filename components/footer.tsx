@@ -33,15 +33,15 @@ export default function Footer() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="flex space-x-6"
           >
-            <a href="#" className="text-zinc-400 transition-colors hover:text-[#9ccc3d]" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/vlad05x" className="text-zinc-400 transition-colors hover:text-[#9ccc3d]" target="_blank" rel="noopener noreferrer">
               <Github className="h-5 w-5" />
               <span className="sr-only">GitHub</span>
             </a>
-            <a href="#" className="text-zinc-400 transition-colors hover:text-[#9ccc3d]" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/vlad-honcharenko-4a003228b/" className="text-zinc-400 transition-colors hover:text-[#9ccc3d]" target="_blank" rel="noopener noreferrer">
               <Linkedin className="h-5 w-5" />
               <span className="sr-only">LinkedIn</span>
             </a>
-            <a href="mailto:john.doe@example.com" className="text-zinc-400 transition-colors hover:text-[#9ccc3d]">
+            <a href="mailto:organizm777alf@gmail.com" className="text-zinc-400 transition-colors hover:text-[#9ccc3d]">
               <Mail className="h-5 w-5" />
               <span className="sr-only">Email</span>
             </a>

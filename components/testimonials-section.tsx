@@ -25,7 +25,7 @@ export default function TestimonialsSection() {
       position: "Backend Laravel Developer",
       company: "",
       avatar: "https://media.licdn.com/dms/image/v2/D4E35AQGQDkyJ5lasdA/profile-framedphoto-shrink_200_200/profile-framedphoto-shrink_200_200/0/1719447236109?e=1743933600&v=beta&t=5yF2K_rtdDrwc6h71VGxIL4Ii5jpkwopRzhY86F9M-g",
-      text: "John is an exceptional React developer who consistently delivers high-quality code. His attention to detail and problem-solving skills are outstanding. He transformed our legacy application into a modern, responsive platform that our users love.",
+      text: "I had the opportunity to work with Vlad and I can confidently say that he is an expert in React development. Vlad has deep knowledge of JavaScript and React. In addition to his technical skills, Vlad is also known for his communication skills, attention to detail, and ability to adapt quickly to new challenges. He is always result-oriented and works to achieve the best results in the team.",
     },
   ]
 

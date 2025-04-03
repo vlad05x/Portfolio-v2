@@ -354,7 +354,7 @@ export default function ProjectsSection() {
                 <div className="flex justify-between">
                   <Button
                     variant="outline"
-                    className="border-zinc-600 text-zinc-300 hover:border-[#9ccc3d] hover:bg-[#9ccc3d]/10 hover:text-[#9ccc3d]"
+                    className="border-zinc-600 text-zinc-800 hover:border-[#9ccc3d] hover:bg-[#9ccc3d]/10 hover:text-[#9ccc3d]"
                     onClick={() => window.open(selectedProject.githubUrl, "_blank")}
                   >
                     <Github className="mr-2 h-4 w-4" />
