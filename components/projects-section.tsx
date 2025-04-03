@@ -319,12 +319,6 @@ export default function ProjectsSection() {
           <DialogContent className="max-w-3xl bg-zinc-900 text-white">
             <DialogHeader>
               <DialogTitle className="text-2xl font-bold text-[#9ccc3d]">{selectedProject?.title}</DialogTitle>
-              <button
-                className="absolute right-4 top-4 rounded-full p-1 text-zinc-400 hover:bg-zinc-800 hover:text-white"
-                onClick={() => setSelectedProject(null)}
-              >
-                <X className="h-5 w-5" />
-              </button>
             </DialogHeader>
 
             {selectedProject && (
