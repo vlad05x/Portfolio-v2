@@ -1,13 +1,27 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { Card, CardContent, CardFooter } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { Github, ExternalLink, X, ChevronLeft, ChevronRight } from "lucide-react"
-import Image, { StaticImageData } from "next/image"
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import {
+  Github,
+  ExternalLink,
+  X,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+import Image, { StaticImageData } from "next/image";
+import { v4 as uuidv4 } from "uuid";
+import DonutImg from "../public/images/Donut.jpeg";
 import PortfolioImg from "../public/images/portfolio-beauty-logo.png";
 import MovieFinderIcon from "../public/images/movie-finderIcon.png";
 import TrellotionImg from "../public/images/trellotionImg.png";
@@ -20,7 +34,7 @@ import RGymImg from "../public/images/RGym.png";
 import LymaImg from "../public/images/Site_lyma.png";
 
 type Project = {
-  id: number;
+  id: string | number;
   title: string;
   description: string;
   image: string | StaticImageData;
@@ -31,13 +45,25 @@ type Project = {
 };
 
 export default function ProjectsSection() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
-  const [currentPage, setCurrentPage] = useState(1)
-  const projectsPerPage = 6
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const projectsPerPage = 6;
 
   const projects: Project[] = [
     {
-      id: 1,
+      id: uuidv4(),
+      title: "DoughDelights",
+      description:
+        "A modern and convenient donut shop website where you can order delicious donuts online.",
+      image: DonutImg,
+      technologies: ["Next.js", "TypeScrtipt", "TailwindCSS", "Radix-UI", "Canvas"],
+      githubUrl: "https://github.com/vlad05x/donut-shop",
+      demoUrl: "https://donut-shop-henna.vercel.app/",
+      longDescription:
+        "Welcome to the stylish and intuitive donut shop website, designed specifically for convenient and fast online ordering of delicious donuts. The project was made using modern technologies: Next.js for fast work and SEO optimization, TypeScript for reliability and code quality, and TailwindCSS for adaptive and aesthetic design. Interactive components are implemented using Radix-UI, and beautiful animation on HTML Canvas creates an atmosphere of celebration and appetite. Make your order quickly, easily and with pleasure! This site was also made using AI.",
+    },
+    {
+      id: uuidv4(),
       title: "Portfolio-beauty",
       description:
         "Here you will find works that reflect a unique approach and style.",
@@ -49,7 +75,7 @@ export default function ProjectsSection() {
         "This project was developed as a freelance task to create a portfolio website for a beauty salon. Built using React and JavaScript, the website features a responsive design that ensures smooth functionality across all devices. It offers a modern, user-friendly interface, allowing clients to easily explore the salon's services and make appointments. The design focuses on enhancing the user experience while maintaining the salon's brand identity.",
     },
     {
-      id: 2,
+      id: uuidv4(),
       title: "Movie-finder",
       description:
         "An app that helps you choose a movie to watch by generating random recommendations based on your preferences.",
@@ -67,7 +93,7 @@ export default function ProjectsSection() {
         "This app helps users discover new movies by providing random recommendations based on their preferences, such as genre or rating. Built with React, it offers a smooth, interactive experience. The app leverages an external API to fetch movie data, ensuring up-to-date and diverse suggestions. It’s perfect for those who want quick, personalized recommendations and enjoy exploring new films.",
     },
     {
-      id: 3,
+      id: uuidv4(),
       title: "Trellotion",
       description:
         "An application that will help you with saving tasks you need to do.",
@@ -81,7 +107,7 @@ export default function ProjectsSection() {
         "Express.js",
         "MongoDB",
         "SCSS / CSS",
-        "Responsive"
+        "Responsive",
       ],
       githubUrl: "https://github.com/vlad05x/Trellotion-v2",
       demoUrl: "https://trellotion-v2.vercel.app/",
@@ -89,7 +115,7 @@ export default function ProjectsSection() {
         "This project integrates both a backend and a database to efficiently manage and store user data, tables, and task cards. The application is inspired by Trello, offering a similar board and card interface for task management. Users can create, organize, and track their tasks seamlessly. The backend is designed to handle user authentication and store data persistently, ensuring that your tasks are always available and up-to-date.",
     },
     {
-      id: 4,
+      id: uuidv4(),
       title: "FoodDX",
       description:
         "Discover a unique combination of excellent cuisine and attentive service. Come and enjoy a unique gastronomic experience with us.",
@@ -101,34 +127,47 @@ export default function ProjectsSection() {
         "Welcome to FoodDX, where culinary excellence meets unforgettable dining experiences. Our menu features a fusion of flavors crafted with the finest ingredients, designed to delight every palate. Whether you're here for a casual meal or a special celebration, our welcoming atmosphere and exceptional service will ensure your visit is memorable. Discover the taste of quality, only at FoodDX — where food is art",
     },
     {
-      id: 5,
+      id: uuidv4(),
       title: "BasketballMania",
       description:
         "An online store entirely dedicated to basketball, where you'll find everything you need from professional gear to accessories for the game.",
       image: BasketBallImg,
-      technologies: ["HTML5", "CSS3", "JavaScript", "Bootstrap", "PHP", "MySQL", "Responsive"],
+      technologies: [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "Bootstrap",
+        "PHP",
+        "MySQL",
+        "Responsive",
+      ],
       githubUrl: "https://github.com/vlad05x/basketball-shop",
       demoUrl: "https://vlad05x.github.io/basketball-shop/",
       longDescription:
         "BasketballGear is an online store dedicated to basketball enthusiasts, offering a wide range of products from professional gear to essential accessories for the game. Whether you're a player, coach, or fan, you'll find everything you need to enhance your basketball experience. This platform is built using HTML5, CSS3, JavaScript, Bootstrap, PHP, and MySQL, ensuring a smooth and responsive shopping experience for all users.",
     },
     {
-      id: 6,
+      id: uuidv4(),
       title: "Language-learning",
       description:
         "An app for learning new words that turns the memorization process into a fun and effective activity.",
       image: LanguageLearnImg,
-      technologies: ["React", "TypeScript", "MUI (Material UI)", "Tailwind CSS", "Responsive"],
+      technologies: [
+        "React",
+        "TypeScript",
+        "MUI (Material UI)",
+        "Tailwind CSS",
+        "Responsive",
+      ],
       githubUrl: "https://github.com/vlad05x/Language-learning",
       demoUrl: "http://vlad05x.github.io/Language-learning/",
       longDescription:
         "This application helps users learn new words by transforming the memorization process into an engaging and effective experience. Through interactive exercises and a user-friendly interface, it enhances vocabulary retention while making learning enjoyable. Built with React, TypeScript, MUI (Material UI), and Tailwind CSS, the app ensures a smooth, responsive, and visually appealing experience. Whether you're expanding your vocabulary for personal growth or language learning, this tool makes the process seamless and fun.",
     },
     {
-      id: 7,
+      id: uuidv4(),
       title: "Movie-app",
-      description:
-        "An app that helps you find movies",
+      description: "An app that helps you find movies",
       image: MovieAppIcon,
       technologies: ["Next.js", "TypeScript", "CSS3", "Rest API", "Responsive"],
       githubUrl: "https://github.com/vlad05x/Language-learning",
@@ -137,7 +176,7 @@ export default function ProjectsSection() {
         "An application that helps you find movies by searching for titles and displaying all matching results. It provides a fast and efficient way to explore films, making it easy to discover the right one. Built with Next.js, TypeScript, CSS3, and REST API, the app delivers a seamless and responsive user experience. Whether you're looking for a specific movie or exploring different options, this tool makes searching effortless.",
     },
     {
-      id: 8,
+      id: uuidv4(),
       title: "Di-Gi",
       description:
         "A full-cycle digital agency focused on the best results for our clients in marketing, sales and management.",
@@ -149,7 +188,7 @@ export default function ProjectsSection() {
         "A full-cycle digital agency dedicated to delivering top results in marketing, sales, and business management. Our goal is to create impactful digital solutions that drive growth and enhance brand presence. This project was developed after completing a section of a professional course, applying industry best practices. Built with HTML5, CSS3, JavaScript, and Responsive design, the website ensures seamless performance across all devices while maintaining a sleek and modern look.",
     },
     {
-      id: 9,
+      id: uuidv4(),
       title: "RGym",
       description:
         "Do you want to train? Join our community and start your journey to health and great shape today!",
@@ -161,7 +200,7 @@ export default function ProjectsSection() {
         "A modern and dynamic landing page designed for a gym, showcasing its facilities, services, and membership options. The website provides an engaging user experience, helping potential clients explore training programs, schedules, and pricing with ease. Built with HTML5, CSS3, JavaScript, and Responsive design, it ensures smooth navigation and optimal performance on all devices. Whether you're a fitness enthusiast or a beginner, this site delivers all the essential information to get started on your fitness journey.",
     },
     {
-      id: 10,
+      id: uuidv4(),
       title: "Lyma",
       description:
         "We offer everything you need to create a unique look and care for your skin. Trust us and enjoy confidence and beauty every day!",
@@ -172,28 +211,31 @@ export default function ProjectsSection() {
       longDescription:
         "We provide everything you need to craft a unique style and take care of your skin with high-quality products. Our selection ensures that you can enhance your beauty routine with confidence and ease. Trust us to deliver the best in skincare and personal care, helping you feel radiant and empowered every day.",
     },
-  ]
+  ];
 
-  const totalPages = Math.ceil(projects.length / projectsPerPage)
-  const indexOfLastProject = currentPage * projectsPerPage
-  const indexOfFirstProject = indexOfLastProject - projectsPerPage
-  const currentProjects = projects.slice(indexOfFirstProject, indexOfLastProject)
+  const totalPages = Math.ceil(projects.length / projectsPerPage);
+  const indexOfLastProject = currentPage * projectsPerPage;
+  const indexOfFirstProject = indexOfLastProject - projectsPerPage;
+  const currentProjects = projects.slice(
+    indexOfFirstProject,
+    indexOfLastProject
+  );
 
   const paginate = (pageNumber: number) => {
-    setCurrentPage(pageNumber)
-  }
+    setCurrentPage(pageNumber);
+  };
 
   const nextPage = () => {
     if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1)
+      setCurrentPage(currentPage + 1);
     }
-  }
+  };
 
   const prevPage = () => {
     if (currentPage > 1) {
-      setCurrentPage(currentPage - 1)
+      setCurrentPage(currentPage - 1);
     }
-  }
+  };
 
   return (
     <section id="projects" className="py-20">
@@ -230,11 +272,18 @@ export default function ProjectsSection() {
                   />
                 </div>
                 <CardContent className="p-4">
-                  <h3 className="mb-2 text-xl font-semibold text-white">{project.title}</h3>
-                  <p className="mb-4 text-sm text-zinc-300">{project.description}</p>
+                  <h3 className="mb-2 text-xl font-semibold text-white">
+                    {project.title}
+                  </h3>
+                  <p className="mb-4 text-sm text-zinc-300">
+                    {project.description}
+                  </p>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.slice(0, 3).map((tech) => (
-                      <Badge key={tech} className="bg-[#9ccc3d]/20 text-[#9ccc3d] hover:bg-[#9ccc3d]/30">
+                      <Badge
+                        key={tech}
+                        className="bg-[#9ccc3d]/20 text-[#9ccc3d] hover:bg-[#9ccc3d]/30"
+                      >
                         {tech}
                       </Badge>
                     ))}
@@ -251,8 +300,8 @@ export default function ProjectsSection() {
                     variant="outline"
                     className="border-zinc-600 text-zinc-800 hover:border-[#9ccc3d] hover:bg-[#9ccc3d]/10 hover:text-[#9ccc3d]"
                     onClick={(e) => {
-                      e.stopPropagation()
-                      window.open(project.githubUrl, "_blank")
+                      e.stopPropagation();
+                      window.open(project.githubUrl, "_blank");
                     }}
                   >
                     <Github className="mr-2 h-4 w-4" />
@@ -262,8 +311,8 @@ export default function ProjectsSection() {
                     size="sm"
                     className="bg-[#9ccc3d] text-black hover:bg-[#8bbb2c]"
                     onClick={(e) => {
-                      e.stopPropagation()
-                      window.open(project.demoUrl, "_blank")
+                      e.stopPropagation();
+                      window.open(project.demoUrl, "_blank");
                     }}
                   >
                     <ExternalLink className="mr-2 h-4 w-4" />
@@ -315,10 +364,15 @@ export default function ProjectsSection() {
           </Button>
         </div>
 
-        <Dialog open={!!selectedProject} onOpenChange={(open) => !open && setSelectedProject(null)}>
+        <Dialog
+          open={!!selectedProject}
+          onOpenChange={(open) => !open && setSelectedProject(null)}
+        >
           <DialogContent className="max-w-3xl bg-zinc-900 text-white">
             <DialogHeader>
-              <DialogTitle className="text-2xl font-bold text-[#9ccc3d]">{selectedProject?.title}</DialogTitle>
+              <DialogTitle className="text-2xl font-bold text-[#9ccc3d]">
+                {selectedProject?.title}
+              </DialogTitle>
             </DialogHeader>
 
             {selectedProject && (
@@ -332,13 +386,20 @@ export default function ProjectsSection() {
                   />
                 </div>
 
-                <DialogDescription className="mb-4 text-zinc-300">{selectedProject.longDescription}</DialogDescription>
+                <DialogDescription className="mb-4 text-zinc-300">
+                  {selectedProject.longDescription}
+                </DialogDescription>
 
                 <div className="mb-6">
-                  <h4 className="mb-2 text-lg font-medium text-white">Technologies Used:</h4>
+                  <h4 className="mb-2 text-lg font-medium text-white">
+                    Technologies Used:
+                  </h4>
                   <div className="flex flex-wrap gap-2">
                     {selectedProject.technologies.map((tech) => (
-                      <Badge key={tech} className="bg-[#9ccc3d]/20 text-[#9ccc3d]">
+                      <Badge
+                        key={tech}
+                        className="bg-[#9ccc3d]/20 text-[#9ccc3d]"
+                      >
                         {tech}
                       </Badge>
                     ))}
@@ -349,14 +410,18 @@ export default function ProjectsSection() {
                   <Button
                     variant="outline"
                     className="border-zinc-600 text-zinc-800 hover:border-[#9ccc3d] hover:bg-[#9ccc3d]/10 hover:text-[#9ccc3d]"
-                    onClick={() => window.open(selectedProject.githubUrl, "_blank")}
+                    onClick={() =>
+                      window.open(selectedProject.githubUrl, "_blank")
+                    }
                   >
                     <Github className="mr-2 h-4 w-4" />
                     View Source Code
                   </Button>
                   <Button
                     className="bg-[#9ccc3d] text-black hover:bg-[#8bbb2c]"
-                    onClick={() => window.open(selectedProject.demoUrl, "_blank")}
+                    onClick={() =>
+                      window.open(selectedProject.demoUrl, "_blank")
+                    }
                   >
                     <ExternalLink className="mr-2 h-4 w-4" />
                     Live Demo
@@ -368,6 +433,5 @@ export default function ProjectsSection() {
         </Dialog>
       </div>
     </section>
-  )
+  );
 }
-
