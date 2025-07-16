@@ -170,8 +170,8 @@ export default function ProjectsSection() {
       description: "An app that helps you find movies",
       image: MovieAppIcon,
       technologies: ["Next.js", "TypeScript", "CSS3", "Rest API", "Responsive"],
-      githubUrl: "https://github.com/vlad05x/Language-learning",
-      demoUrl: "http://vlad05x.github.io/Language-learning/",
+      githubUrl: "https://github.com/vlad05x/movie-app",
+      demoUrl: "https://movie-app-chi-swart.vercel.app/",
       longDescription:
         "An application that helps you find movies by searching for titles and displaying all matching results. It provides a fast and efficient way to explore films, making it easy to discover the right one. Built with Next.js, TypeScript, CSS3, and REST API, the app delivers a seamless and responsive user experience. Whether you're looking for a specific movie or exploring different options, this tool makes searching effortless.",
     },
