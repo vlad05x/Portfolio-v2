@@ -22,6 +22,7 @@ import {
 import Image, { StaticImageData } from "next/image";
 import { v4 as uuidv4 } from "uuid";
 import DonutImg from "../public/images/Donut.jpeg";
+import MagnifierPro from "../public/images/MagnifierPro.png";
 import PortfolioImg from "../public/images/portfolio-beauty-logo.png";
 import MovieFinderIcon from "../public/images/movie-finderIcon.png";
 import TrellotionImg from "../public/images/trellotionImg.png";
@@ -61,6 +62,18 @@ export default function ProjectsSection() {
       demoUrl: "https://donut-shop-henna.vercel.app/",
       longDescription:
         "Welcome to the stylish and intuitive donut shop website, designed specifically for convenient and fast online ordering of delicious donuts. The project was made using modern technologies: Next.js for fast work and SEO optimization, TypeScript for reliability and code quality, and TailwindCSS for adaptive and aesthetic design. Interactive components are implemented using Radix-UI, and beautiful animation on HTML Canvas creates an atmosphere of celebration and appetite. Make your order quickly, easily and with pleasure! This site was also made using AI.",
+    },
+    {
+      id: uuidv4(),
+      title: "Magnifier Pro",
+      description:
+        "This is a commercial landing page developed for a client on Fiverr.",
+      image: MagnifierPro,
+      technologies: ["HTML5", "CSS3", "JavaScript"],
+      githubUrl: "https://github.com/vlad05x/MagnifierPro",
+      demoUrl: "https://vlad05x.github.io/MagnifierPro/",
+      longDescription:
+        "This is a commercial landing page developed for a client on Fiverr. The landing showcases the key features of the Screen Magnifier app, designed to magnify and highlight content on Mac screens, improving focus and productivity when reading or working with text and graphics.",
     },
     {
       id: uuidv4(),
