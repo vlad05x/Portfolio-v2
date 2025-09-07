@@ -2,13 +2,18 @@
 
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Tooltip, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import {
+  Tooltip,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import Image from "next/image";
 import {
   ReactIcon,
   NextIcon,
   JavaScriptIcon,
   TypeScriptIcon,
+  MaterialUiIcon,
   NodeJsIcon,
   ReduxIcon,
   HtmlIcon,
@@ -24,6 +29,7 @@ export default function SkillsSection() {
         { name: "Next.js", level: 100 },
         { name: "JavaScript", level: 100 },
         { name: "TypeScript", level: 100 },
+        { name: "Material UI", level: 100 },
         { name: "Redux", level: 100 },
         { name: "Electron.js", level: 100 },
         { name: "Tailwind CSS", level: 100 },
@@ -74,7 +80,9 @@ export default function SkillsSection() {
             >
               <Card className="h-full bg-zinc-800/50 border-zinc-700">
                 <CardContent className="p-6">
-                  <h3 className="mb-6 text-xl font-semibold text-white">{category.title}</h3>
+                  <h3 className="mb-6 text-xl font-semibold text-white">
+                    {category.title}
+                  </h3>
 
                   <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
                     {category.skills.map((skill, index) => (
@@ -84,7 +92,11 @@ export default function SkillsSection() {
                             <motion.div
                               className="group flex h-24 cursor-pointer flex-col items-center justify-center rounded-lg bg-zinc-900 p-3 transition-all duration-300 hover:bg-[#9ccc3d]/10"
                               whileHover={{ scale: 1.05 }}
-                              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                              transition={{
+                                type: "spring",
+                                stiffness: 400,
+                                damping: 10,
+                              }}
                             >
                               <div className="mb-2 h-2 w-full rounded-full bg-zinc-700">
                                 <motion.div
@@ -118,18 +130,106 @@ export default function SkillsSection() {
         >
           <Card className="bg-zinc-800/50 border-zinc-700">
             <CardContent className="p-6">
-              <h3 className="mb-6 text-center text-xl font-semibold text-white">Tools & Technologies</h3>
+              <h3 className="mb-6 text-center text-xl font-semibold text-white">
+                Tools & Technologies
+              </h3>
 
               <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-                {[ 
-                  { name: "React", icon: <Image src={ReactIcon} alt="React" width={32} height={32} /> }, 
-                  { name: "Next.js", icon: <Image src={NextIcon} alt="React" width={32} height={32} /> }, 
-                  { name: "JavaScript", icon: <Image src={JavaScriptIcon} alt="React" width={32} height={32} /> },
-                  { name: "TypeScript", icon: <Image src={TypeScriptIcon} alt="React" width={32} height={32} /> },
-                  { name: "Redux", icon: <Image src={ReduxIcon} alt="React" width={32} height={32} /> },
-                  { name: "Node.js", icon: <Image src={NodeJsIcon} alt="React" width={32} height={32} /> },
-                  { name: "HTML5", icon: <Image src={HtmlIcon} alt="React" width={32} height={32} /> },
-                  { name: "CSS", icon: <Image src={CssIcon} alt="React" width={32} height={32} /> },
+                {[
+                  {
+                    name: "React",
+                    icon: (
+                      <Image
+                        src={ReactIcon}
+                        alt="React"
+                        width={32}
+                        height={32}
+                      />
+                    ),
+                  },
+                  {
+                    name: "Next.js",
+                    icon: (
+                      <Image
+                        src={NextIcon}
+                        alt="React"
+                        width={32}
+                        height={32}
+                      />
+                    ),
+                  },
+                  {
+                    name: "JavaScript",
+                    icon: (
+                      <Image
+                        src={JavaScriptIcon}
+                        alt="React"
+                        width={32}
+                        height={32}
+                      />
+                    ),
+                  },
+                  {
+                    name: "TypeScript",
+                    icon: (
+                      <Image
+                        src={TypeScriptIcon}
+                        alt="React"
+                        width={32}
+                        height={32}
+                      />
+                    ),
+                  },
+                  {
+                    name: "Material UI",
+                    icon: (
+                      <Image
+                        src={MaterialUiIcon}
+                        alt="Materil UI"
+                        width={32}
+                        height={32}
+                      />
+                    ),
+                  },
+                  {
+                    name: "Redux",
+                    icon: (
+                      <Image
+                        src={ReduxIcon}
+                        alt="React"
+                        width={32}
+                        height={32}
+                      />
+                    ),
+                  },
+                  {
+                    name: "Node.js",
+                    icon: (
+                      <Image
+                        src={NodeJsIcon}
+                        alt="React"
+                        width={32}
+                        height={32}
+                      />
+                    ),
+                  },
+                  {
+                    name: "HTML5",
+                    icon: (
+                      <Image
+                        src={HtmlIcon}
+                        alt="React"
+                        width={32}
+                        height={32}
+                      />
+                    ),
+                  },
+                  {
+                    name: "CSS",
+                    icon: (
+                      <Image src={CssIcon} alt="React" width={32} height={32} />
+                    ),
+                  },
                 ].map((tool, index) => (
                   <motion.div
                     key={tool.name}
@@ -143,7 +243,9 @@ export default function SkillsSection() {
                     <div className="mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-zinc-800">
                       {tool.icon}
                     </div>
-                    <span className="font-medium text-zinc-300">{tool.name}</span>
+                    <span className="font-medium text-zinc-300">
+                      {tool.name}
+                    </span>
                   </motion.div>
                 ))}
               </div>

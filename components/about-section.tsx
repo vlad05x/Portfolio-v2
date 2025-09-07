@@ -29,6 +29,13 @@ export default function AboutSection() {
       description:
         "Throughout this course, I diligently strengthened my skills in React.js and JavaScript. By the end, I successfully developed the project 'Trellotion', showcasing my proficiency in these technologies.",
     },
+    {
+      year: "9/2025 - continue",
+      title: "Freelance Frontend Developer",
+      company: "Remote / Worldwide",
+      description:
+        "As a freelance developer, I deliver modern and scalable web applications using React.js and TypeScript. I work with clients worldwide, focusing on clean architecture, responsive UI/UX, and seamless API integrations, while managing the full development cycle independently.",
+    },
   ];
 
   return (

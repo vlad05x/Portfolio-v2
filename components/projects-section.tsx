@@ -82,7 +82,7 @@ export default function ProjectsSection() {
       description:
         "A premium barbershop project that combines top-level service with a refined atmosphere. The design emphasizes style, comfort, and exclusivity for clients who value quality and elegance.",
       image: Barbershop,
-      technologies: ["HTML5", "CSS3", "JavaScript"],
+      technologies: ["Next.js", "React", "TypeScript", "Tailwaind", "MUI"],
       githubUrl: "https://github.com/vlad05x/barbershop-landing-page",
       demoUrl: "https://v0-barbershop-landing-page-five.vercel.app/",
       longDescription:

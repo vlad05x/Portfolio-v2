@@ -8,6 +8,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import FiverrIcon from "../public/icons/fiverrIcon.svg";
 import { Github, Linkedin, Mail, MessageSquare, Instagram, Send } from "lucide-react";
 
 export default function ContactSection() {
@@ -99,6 +101,14 @@ export default function ContactSection() {
                   Connect With Me
                 </h4>
                 <div className="flex space-x-4">
+                  <a
+                    href="https://www.fiverr.com/s/yvRR3Qe"
+                    className="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-700 text-white transition-all hover:bg-[#9ccc3d] hover:text-black"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Image src={FiverrIcon} alt="Fiverr icon" className="h-6 w-6" />
+                  </a>
                   <a
                     href="https://github.com/vlad05x"
                     className="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-700 text-white transition-all hover:bg-[#9ccc3d] hover:text-black"
