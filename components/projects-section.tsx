@@ -23,6 +23,7 @@ import Image, { StaticImageData } from "next/image";
 import { v4 as uuidv4 } from "uuid";
 import DonutImg from "../public/images/Donut.jpeg";
 import MagnifierPro from "../public/images/MagnifierPro.png";
+import Barbershop from "../public/images/Barbershop.png";
 import PortfolioImg from "../public/images/portfolio-beauty-logo.png";
 import MovieFinderIcon from "../public/images/movie-finderIcon.png";
 import TrellotionImg from "../public/images/trellotionImg.png";
@@ -74,6 +75,18 @@ export default function ProjectsSection() {
       demoUrl: "https://vlad05x.github.io/MagnifierPro/",
       longDescription:
         "This is a commercial landing page developed for a client on Fiverr. The landing showcases the key features of the Screen Magnifier app, designed to magnify and highlight content on Mac screens, improving focus and productivity when reading or working with text and graphics.",
+    },
+    {
+      id: uuidv4(),
+      title: "Barbershop - ELITE CUTS",
+      description:
+        "A premium barbershop project that combines top-level service with a refined atmosphere. The design emphasizes style, comfort, and exclusivity for clients who value quality and elegance.",
+      image: Barbershop,
+      technologies: ["HTML5", "CSS3", "JavaScript"],
+      githubUrl: "https://github.com/vlad05x/barbershop-landing-page",
+      demoUrl: "https://v0-barbershop-landing-page-five.vercel.app/",
+      longDescription:
+        "This barbershop project brings together the traditions of classic men’s grooming and a modern approach to style. The interior and concept are designed to create a premium, comfortable, and exclusive atmosphere. Special attention is given to personalized service, from haircut selection to professional care and styling advice. The project positions the barbershop not just as a grooming space, but as a private men’s club where clients can relax and highlight their individuality. From the technical side, the website is built with Next.js, TypeScript, Tailwind CSS, and MUI, ensuring performance, scalability, and a clean design system. This combination delivers both a strong visual identity and a seamless user experience.",
     },
     {
       id: uuidv4(),
