@@ -21,6 +21,8 @@ import {
 } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
 import { v4 as uuidv4 } from "uuid";
+import KarpatyImg from "../public/images/KARPATY.png";
+import StarBucksImg from "../public/images/StarBucks.png";
 import DonutImg from "../public/images/Donut.jpeg";
 import MagnifierPro from "../public/images/MagnifierPro.png";
 import Barbershop from "../public/images/Barbershop.png";
@@ -41,7 +43,7 @@ type Project = {
   description: string;
   image: string | StaticImageData;
   technologies: string[];
-  githubUrl: string;
+  githubUrl?: string;
   demoUrl: string;
   longDescription: string;
 };
@@ -52,6 +54,29 @@ export default function ProjectsSection() {
   const projectsPerPage = 6;
 
   const projects: Project[] = [
+    {
+      id: uuidv4(),
+      title: "KARPATY",
+      description:
+        "A bespoke educational platform developed for an international Ukrainian school, blending cultural heritage with modern web functionality.",
+      image: KarpatyImg,
+      technologies: ["HTML5", "CSS3", "SCSS", "JavaScript", "Wordpress"],
+      demoUrl: "https://karpaty.school/",
+      longDescription:
+        "The KARPATY project is a custom-designed web solution created specifically for an international Ukrainian school to facilitate global educational outreach. Built on WordPress, the platform offers a robust and flexible content management system tailored to the institution's unique needs. The frontend architecture leverages HTML5 and JavaScript for core functionality, with SCSS utilized to create a modular and highly maintainable styling system. This approach ensured a responsive, fast-loading, and visually engaging experience for an international audience. The project highlights expertise in transforming educational requirements into a professional digital presence, maintaining a balance between intuitive navigation and the vibrant aesthetic of Ukrainian culture.",
+    },
+    {
+      id: uuidv4(),
+      title: "StarBucks Project",
+      description:
+        "A premium and highly responsive Starbucks web application clone, developed as a professional technical assessment to demonstrate high-end frontend capabilities.",
+      image: StarBucksImg,
+      technologies: ["Next.js", "TypeScrtipt", "TailwindCSS", "Material UI"],
+      githubUrl: "https://github.com/vlad05x/starbucks",
+      demoUrl: "https://starbucks-rosy-beta.vercel.app/",
+      longDescription:
+        "A high-fidelity Starbucks digital experience, precision-engineered as a technical assessment for a professional role. This project demonstrates a mastery of modern frontend architecture, built with Next.js for high-performance rendering and TypeScript for robust, enterprise-grade code reliability. The user interface seamlessly integrates Tailwind CSS for custom layout flexibility and Material UI for sophisticated, accessible UI components, resulting in a pixel-perfect recreation of the iconic brand. This implementation highlights the ability to deliver production-quality solutions that balance aesthetic excellence with strict technical requirements, all while utilizing AI-driven development to optimize workflow efficiency.",
+    },
     {
       id: uuidv4(),
       title: "DoughDelights",

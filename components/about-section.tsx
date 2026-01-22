@@ -64,7 +64,7 @@ export default function AboutSection() {
                 src={photoCV}
                 alt="Developer Profile"
                 fill
-                className="absolute inset-0 object-cover object-center filter contrast-125"
+                className="absolute inset-0 object-cover object-[center_10%] filter contrast-125"
               />
             </div>
           </motion.div>
@@ -119,9 +119,8 @@ export default function AboutSection() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <div
-                  className={`flex items-center ${
-                    index % 2 === 0 ? "flex-row-reverse" : ""
-                  }`}
+                  className={`flex items-center ${index % 2 === 0 ? "flex-row-reverse" : ""
+                    }`}
                 >
                   <div className="w-1/2 px-4"></div>
 
