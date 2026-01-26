@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
 import { v4 as uuidv4 } from "uuid";
+import ForgeGymImg from "../public/images/ForgeGymImg.png";
 import KarpatyImg from "../public/images/KARPATY.png";
 import StarBucksImg from "../public/images/StarBucks.png";
 import DonutImg from "../public/images/Donut.jpeg";
@@ -54,6 +55,18 @@ export default function ProjectsSection() {
   const projectsPerPage = 6;
 
   const projects: Project[] = [
+    {
+      id: uuidv4(),
+      title: "FORGE GYM",
+      description:
+        "A modern digital platform for a fitness gym, designed with the assistance of AI (cto.new) to showcase training programs, atmosphere, and brand identity.",
+      image: ForgeGymImg,
+      technologies: ["Next.js", "TypeScript", "TailwindCSS", "Framer Motion"],
+      githubUrl: "https://github.com/vlad05x/FORGE-GYM",
+      demoUrl: "https://forge-gym-gold.vercel.app/",
+      longDescription:
+        "The FORGE GYM project is a custom-designed web platform created for a modern fitness gym, developed with the assistance of the AI-powered CTO tool cto.new. The project focuses on presenting the gym’s philosophy, training programs, and professional environment through a clean and engaging digital experience. The frontend architecture is built with a strong emphasis on performance, responsiveness, and visual clarity, ensuring smooth interaction across all devices. Modern web technologies were used to create a scalable and maintainable codebase, while animations and transitions enhance user engagement without compromising usability. Special attention was given to brand presentation, intuitive navigation, and clear content structure, allowing potential clients to quickly understand the gym’s offerings and atmosphere. The project demonstrates how AI-assisted development can accelerate decision-making, improve architectural consistency, and deliver a professional, high-quality digital product tailored to the fitness industry.",
+    },
     {
       id: uuidv4(),
       title: "KARPATY",
