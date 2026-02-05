@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
 import { v4 as uuidv4 } from "uuid";
+import portfolioBeauty from "@/public/images/portfolio-beauty-logo2.png";
 import ForgeGymImg from "../public/images/ForgeGymImg.png";
 import KarpatyImg from "../public/images/KARPATY.png";
 import StarBucksImg from "../public/images/StarBucks.png";
@@ -55,6 +56,18 @@ export default function ProjectsSection() {
   const projectsPerPage = 6;
 
   const projects: Project[] = [
+    {
+      id: uuidv4(),
+      title: "Portfolio-Beauty",
+      description:
+        "A professional landing page for a beauty salon featuring a service catalog and appointment booking.",
+      image: portfolioBeauty,
+      technologies: ["Next.js", "TypeScript", "TailwindCSS", "Framer Motion", "Sanity CMS"],
+      githubUrl: "https://github.com/vlad05x/BEAUTY-MASTERY",
+      demoUrl: "https://beauty-mastery.vercel.app/",
+      longDescription:
+        "A freelance project developed for a beauty salon. The focus was on creating a modern, high-conversion landing page with a responsive layout. Key features include a service showcase, interactive booking elements, and strict adherence to the brand's visual identity.",
+    },
     {
       id: uuidv4(),
       title: "FORGE GYM",
