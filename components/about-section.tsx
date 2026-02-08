@@ -7,37 +7,38 @@ import { urlFor } from "@/sanity/lib/image";
 import { PortableText } from '@portabletext/react';
 
 export default function AboutSection({ data }: { data: any }) {
-  const timelineItems = [
-    {
-      year: "9/2023 - Present",
-      title: "Bachelor - Computer Science",
-      company:
-        "Central Ukrainian National Technical University /Kropyvnytskyi, Ukraine",
-      description:
-        "During the past two years of my learning journey, I have significantly developed my skills, gaining proficiency in a range of programming languages including C++, C#, and Python, as well as in web development and database management. Additionally, I have focused on enhancing my soft skills to complement my technical expertise.",
-    },
-    {
-      year: "9/2021 - 5/2023",
-      title: "Computer Science",
-      company: "Lyceum Maximum / Kropyvnytskyi, Ukraine",
-      description:
-        "Studied in an advanced English and computer science class. Studied C++ and Frontend development course.",
-    },
-    {
-      year: "9/2023 - 2/2024",
-      title: "Student - Frontend React developer",
-      company: "Shpp IT-school / Kropyvnytskyi, Ukraine",
-      description:
-        "Throughout this course, I diligently strengthened my skills in React.js and JavaScript. By the end, I successfully developed the project 'Trellotion', showcasing my proficiency in these technologies.",
-    },
-    {
-      year: "9/2025 - continue",
-      title: "Freelance Frontend Developer",
-      company: "Remote / Worldwide",
-      description:
-        "As a freelance developer, I deliver modern and scalable web applications using React.js and TypeScript. I work with clients worldwide, focusing on clean architecture, responsive UI/UX, and seamless API integrations, while managing the full development cycle independently.",
-    },
-  ];
+  const timelineItems = data.journey || [];
+  // const timelineItems = [
+  //   {
+  //     year: "9/2023 - Present",
+  //     title: "Bachelor - Computer Science",
+  //     company:
+  //       "Central Ukrainian National Technical University /Kropyvnytskyi, Ukraine",
+  //     description:
+  //       "During the past two years of my learning journey, I have significantly developed my skills, gaining proficiency in a range of programming languages including C++, C#, and Python, as well as in web development and database management. Additionally, I have focused on enhancing my soft skills to complement my technical expertise.",
+  //   },
+  //   {
+  //     year: "9/2021 - 5/2023",
+  //     title: "Computer Science",
+  //     company: "Lyceum Maximum / Kropyvnytskyi, Ukraine",
+  //     description:
+  //       "Studied in an advanced English and computer science class. Studied C++ and Frontend development course.",
+  //   },
+  //   {
+  //     year: "9/2023 - 2/2024",
+  //     title: "Student - Frontend React developer",
+  //     company: "Shpp IT-school / Kropyvnytskyi, Ukraine",
+  //     description:
+  //       "Throughout this course, I diligently strengthened my skills in React.js and JavaScript. By the end, I successfully developed the project 'Trellotion', showcasing my proficiency in these technologies.",
+  //   },
+  //   {
+  //     year: "9/2025 - continue",
+  //     title: "Freelance Frontend Developer",
+  //     company: "Remote / Worldwide",
+  //     description:
+  //       "As a freelance developer, I deliver modern and scalable web applications using React.js and TypeScript. I work with clients worldwide, focusing on clean architecture, responsive UI/UX, and seamless API integrations, while managing the full development cycle independently.",
+  //   },
+  // ];
 
   return (
     <section id="about" className="py-20">
@@ -99,7 +100,7 @@ export default function AboutSection({ data }: { data: any }) {
             <div className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-zinc-700"></div>
 
             {/* Timeline items */}
-            {timelineItems.map((item, index) => (
+            {timelineItems.map((item: any, index: number) => (
               <motion.div
                 key={index}
                 className="relative mb-12"
@@ -122,7 +123,7 @@ export default function AboutSection({ data }: { data: any }) {
                       <div className="h-1 w-full bg-[#9ccc3d]"></div>
                       <CardContent className="p-4">
                         <span className="mb-2 block text-sm font-medium text-[#9ccc3d]">
-                          {item.year}
+                          {item.period}
                         </span>
                         <h4 className="text-lg font-semibold text-white">
                           {item.title}
