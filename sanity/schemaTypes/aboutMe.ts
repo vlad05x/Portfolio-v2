@@ -37,6 +37,48 @@ export default {
                 }
 
              }],
+        },
+        {
+            name: "journey",
+            title: "My Journey Timeline",
+            type: "array",
+            of: [
+                {
+                    type: "object",
+                    title: "Timeline Entry",
+                    fields: [
+                        {
+                            name: "period",
+                            title: "Period",
+                            type: "string",
+                            description: 'Example: 9/2023 - Present'
+                        },
+                        {
+                            name: "title",
+                            title: "Position",
+                            type: "string",
+                            description: 'Example: Bachelor - Computer Science'
+                        },
+                        {
+                            name: "company",
+                            title: "Company",
+                            type: "string",
+                            description: 'Example: CNTU'
+                        },
+                        {
+                            name: "description",
+                            title: "Description",
+                            type: "text"
+                        }
+                    ],
+                    preview: {
+                        select: {
+                            title: 'title',
+                            subtitle: 'period'
+                        }
+                    }
+                }
+            ]
         }
     ]
 }
