@@ -44,7 +44,7 @@ export default function HeroSection() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              React.js | Next.js | TypeScript | JavaScript |
+              Full Stack Developer | React Developer | Node.js | SaaS Developer
             </motion.h2>
 
             <motion.div
@@ -54,26 +54,26 @@ export default function HeroSection() {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <Button
-                  size="lg"
-                  className="bg-[#9ccc3d] text-black hover:bg-[#8bbb2c] transition-all duration-300 hover:shadow-[0_0_15px_rgba(156,204,61,0.5)]"
-                  onClick={() => {
-                    const contactSection = document.getElementById("contact");
-                    contactSection?.scrollIntoView({ behavior: "smooth" });
-                  }}
-                >
-                  Contact Me
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-[#9ccc3d] text-[#9ccc3d] hover:bg-[#9ccc3d]/10 hover:text-[#9ccc3d] transition-all duration-300"
-                  onClick={() => {
-                    const projectsSection = document.getElementById("projects");
-                    projectsSection?.scrollIntoView({ behavior: "smooth" });
-                  }}
-                >
-                  View Projects
-                </Button>
+                size="lg" 
+                className="bg-[#9ccc3d] text-black hover:bg-[#8bbb2c] transition-all duration-300 hover:shadow-[0_0_15px_rgba(156,204,61,0.5)]"
+                onClick={() => {
+                  const contactSection = document.getElementById("contact");
+                  contactSection?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                Contact Me
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-[#9ccc3d] text-[#9ccc3d] hover:bg-[#9ccc3d]/10 hover:text-[#9ccc3d] transition-all duration-300"
+                onClick={() => {
+                  const projectsSection = document.getElementById("projects");
+                  projectsSection?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                View Projects
+              </Button>
             </motion.div>
           </div>
         </div>

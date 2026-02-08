@@ -3,9 +3,10 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
-import photoCV from "@/public/PhotoCV.jpg";
+import { urlFor } from "@/sanity/lib/image";
+import { PortableText } from '@portabletext/react';
 
-export default function AboutSection() {
+export default function AboutSection({ data }: { data: any }) {
   const timelineItems = [
     {
       year: "9/2023 - Present",
@@ -48,7 +49,7 @@ export default function AboutSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          About Me
+          {data.title}
         </motion.h2>
 
         <div className="grid gap-8 md:grid-cols-2">
@@ -61,7 +62,7 @@ export default function AboutSection() {
           >
             <div className="relative h-64 w-64 overflow-hidden rounded-full border-4 border-[#9ccc3d]">
               <Image
-                src={photoCV}
+                src={urlFor(data.avatar).url()}
                 alt="Developer Profile"
                 fill
                 className="absolute inset-0 object-cover object-[center_10%] filter contrast-125"
@@ -78,22 +79,11 @@ export default function AboutSection() {
             <Card className="bg-zinc-800/50 border-zinc-700">
               <CardContent className="p-6">
                 <h3 className="mb-4 text-2xl font-semibold text-white">
-                  Hello, I'm Vlad Honcharenko
+                  {data.headline}
                 </h3>
-                <p className="mb-6 text-zinc-300">
-                  I am a passionate and detail-oriented Front-End Developer
-                  committed to continuous growth and excellence in the
-                  ever-evolving field of web development. With four years of
-                  experience, I have honed my skills in crafting intuitive and
-                  high-performance digital experiences. My goal is to leverage
-                  my expertise to help individuals and businesses develop
-                  innovative solutions that drive impact and efficiency.
-                </p>
-                <p className="text-zinc-300">
-                  My approach combines technical expertise with creative
-                  problem-solving to deliver exceptional digital experiences
-                  that meet both user needs and business objectives.
-                </p>
+                <div className="mb-6 text-zinc-300 prose prose-invert">
+                  <PortableText value={data.description} />
+                </div>
               </CardContent>
             </Card>
           </motion.div>

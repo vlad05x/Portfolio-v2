@@ -6,11 +6,15 @@ import TestimonialsSection from "@/components/testimonials-section"
 import ContactSection from "@/components/contact-section"
 import Footer from "@/components/footer"
 
-export default function Home() {
+import { client } from "@/sanity/lib/client";
+
+export default async function Home() {
+  const aboutMe = await client.fetch(`*[_type == "aboutMe"][0]`)
+  
   return (
     <main className="min-h-screen bg-gradient-to-b from-black to-zinc-900">
       <HeroSection />
-      <AboutSection />
+      <AboutSection data={aboutMe}/>
       <SkillsSection />
       <ProjectsSection />
       <TestimonialsSection />
