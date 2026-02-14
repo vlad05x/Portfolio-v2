@@ -20,280 +20,30 @@ import {
   ChevronRight,
 } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
-import { v4 as uuidv4 } from "uuid";
-import portfolioBeauty from "@/public/images/portfolio-beauty-logo2.png";
-import ForgeGymImg from "../public/images/ForgeGymImg.png";
-import KarpatyImg from "../public/images/KARPATY.png";
-import StarBucksImg from "../public/images/StarBucks.png";
-import DonutImg from "../public/images/Donut.jpeg";
-import MagnifierPro from "../public/images/MagnifierPro.png";
-import Barbershop from "../public/images/Barbershop.png";
-import PortfolioImg from "../public/images/portfolio-beauty-logo.png";
-import MovieFinderIcon from "../public/images/movie-finderIcon.png";
-import TrellotionImg from "../public/images/trellotionImg.png";
-import FoodDxImg from "../public/images/FoodDX.png";
-import BasketBallImg from "../public/images/BasketballMania.png";
-import LanguageLearnImg from "../public/images/LanguageLearning.png";
-import MovieAppIcon from "../public/images/movie-appLogo.png";
-import DiGiImg from "../public/images/Di-Gi_img.png";
-import RGymImg from "../public/images/RGym.png";
-import LymaImg from "../public/images/Site_lyma.png";
-
+import { urlFor } from "@/sanity/lib/image";
 type Project = {
-  id: string | number;
+  _id: string;
   title: string;
   description: string;
-  image: string | StaticImageData;
+  image: any;
   technologies: string[];
   githubUrl?: string;
   demoUrl: string;
   longDescription: string;
 };
 
-export default function ProjectsSection() {
+export default function ProjectsSection({ data }: { data: Project[] }) {
+  if (!data || data.length === 0) return null;
+
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const projectsPerPage = 6;
 
-  const projects: Project[] = [
-    {
-      id: uuidv4(),
-      title: "Portfolio-Beauty",
-      description:
-        "A professional landing page for a beauty salon featuring a service catalog and appointment booking.",
-      image: portfolioBeauty,
-      technologies: ["Next.js", "TypeScript", "TailwindCSS", "Framer Motion", "Sanity CMS"],
-      githubUrl: "https://github.com/vlad05x/BEAUTY-MASTERY",
-      demoUrl: "https://beauty-mastery.vercel.app/",
-      longDescription:
-        "A freelance project developed for a beauty salon. The focus was on creating a modern, high-conversion landing page with a responsive layout. Key features include a service showcase, interactive booking elements, and strict adherence to the brand's visual identity.",
-    },
-    {
-      id: uuidv4(),
-      title: "FORGE GYM",
-      description:
-        "A modern digital platform for a fitness gym, designed with the assistance of AI (cto.new) to showcase training programs, atmosphere, and brand identity.",
-      image: ForgeGymImg,
-      technologies: ["Next.js", "TypeScript", "TailwindCSS", "Framer Motion"],
-      githubUrl: "https://github.com/vlad05x/FORGE-GYM",
-      demoUrl: "https://forge-gym-gold.vercel.app/",
-      longDescription:
-        "The FORGE GYM project is a custom-designed web platform created for a modern fitness gym, developed with the assistance of the AI-powered CTO tool cto.new. The project focuses on presenting the gym’s philosophy, training programs, and professional environment through a clean and engaging digital experience. The frontend architecture is built with a strong emphasis on performance, responsiveness, and visual clarity, ensuring smooth interaction across all devices. Modern web technologies were used to create a scalable and maintainable codebase, while animations and transitions enhance user engagement without compromising usability. Special attention was given to brand presentation, intuitive navigation, and clear content structure, allowing potential clients to quickly understand the gym’s offerings and atmosphere. The project demonstrates how AI-assisted development can accelerate decision-making, improve architectural consistency, and deliver a professional, high-quality digital product tailored to the fitness industry.",
-    },
-    {
-      id: uuidv4(),
-      title: "KARPATY",
-      description:
-        "A bespoke educational platform developed for an international Ukrainian school, blending cultural heritage with modern web functionality.",
-      image: KarpatyImg,
-      technologies: ["HTML5", "CSS3", "SCSS", "JavaScript", "Wordpress"],
-      demoUrl: "https://karpaty.school/",
-      longDescription:
-        "The KARPATY project is a custom-designed web solution created specifically for an international Ukrainian school to facilitate global educational outreach. Built on WordPress, the platform offers a robust and flexible content management system tailored to the institution's unique needs. The frontend architecture leverages HTML5 and JavaScript for core functionality, with SCSS utilized to create a modular and highly maintainable styling system. This approach ensured a responsive, fast-loading, and visually engaging experience for an international audience. The project highlights expertise in transforming educational requirements into a professional digital presence, maintaining a balance between intuitive navigation and the vibrant aesthetic of Ukrainian culture.",
-    },
-    {
-      id: uuidv4(),
-      title: "StarBucks Project",
-      description:
-        "A premium and highly responsive Starbucks web application clone, developed as a professional technical assessment to demonstrate high-end frontend capabilities.",
-      image: StarBucksImg,
-      technologies: ["Next.js", "TypeScrtipt", "TailwindCSS", "Material UI"],
-      githubUrl: "https://github.com/vlad05x/starbucks",
-      demoUrl: "https://starbucks-rosy-beta.vercel.app/",
-      longDescription:
-        "A high-fidelity Starbucks digital experience, precision-engineered as a technical assessment for a professional role. This project demonstrates a mastery of modern frontend architecture, built with Next.js for high-performance rendering and TypeScript for robust, enterprise-grade code reliability. The user interface seamlessly integrates Tailwind CSS for custom layout flexibility and Material UI for sophisticated, accessible UI components, resulting in a pixel-perfect recreation of the iconic brand. This implementation highlights the ability to deliver production-quality solutions that balance aesthetic excellence with strict technical requirements, all while utilizing AI-driven development to optimize workflow efficiency.",
-    },
-    {
-      id: uuidv4(),
-      title: "DoughDelights",
-      description:
-        "A modern and convenient donut shop website where you can order delicious donuts online.",
-      image: DonutImg,
-      technologies: ["Next.js", "TypeScrtipt", "TailwindCSS", "Radix-UI", "Canvas"],
-      githubUrl: "https://github.com/vlad05x/donut-shop",
-      demoUrl: "https://donut-shop-henna.vercel.app/",
-      longDescription:
-        "Welcome to the stylish and intuitive donut shop website, designed specifically for convenient and fast online ordering of delicious donuts. The project was made using modern technologies: Next.js for fast work and SEO optimization, TypeScript for reliability and code quality, and TailwindCSS for adaptive and aesthetic design. Interactive components are implemented using Radix-UI, and beautiful animation on HTML Canvas creates an atmosphere of celebration and appetite. Make your order quickly, easily and with pleasure! This site was also made using AI.",
-    },
-    {
-      id: uuidv4(),
-      title: "Magnifier Pro",
-      description:
-        "This is a commercial landing page developed for a client on Fiverr.",
-      image: MagnifierPro,
-      technologies: ["HTML5", "CSS3", "JavaScript"],
-      githubUrl: "https://github.com/vlad05x/MagnifierPro",
-      demoUrl: "https://vlad05x.github.io/MagnifierPro/",
-      longDescription:
-        "This is a commercial landing page developed for a client on Fiverr. The landing showcases the key features of the Screen Magnifier app, designed to magnify and highlight content on Mac screens, improving focus and productivity when reading or working with text and graphics.",
-    },
-    {
-      id: uuidv4(),
-      title: "Barbershop - ELITE CUTS",
-      description:
-        "A premium barbershop project that combines top-level service with a refined atmosphere. The design emphasizes style, comfort, and exclusivity for clients who value quality and elegance.",
-      image: Barbershop,
-      technologies: ["Next.js", "React", "TypeScript", "Tailwaind", "MUI"],
-      githubUrl: "https://github.com/vlad05x/barbershop-landing-page",
-      demoUrl: "https://v0-barbershop-landing-page-five.vercel.app/",
-      longDescription:
-        "This barbershop project brings together the traditions of classic men’s grooming and a modern approach to style. The interior and concept are designed to create a premium, comfortable, and exclusive atmosphere. Special attention is given to personalized service, from haircut selection to professional care and styling advice. The project positions the barbershop not just as a grooming space, but as a private men’s club where clients can relax and highlight their individuality. From the technical side, the website is built with Next.js, TypeScript, Tailwind CSS, and MUI, ensuring performance, scalability, and a clean design system. This combination delivers both a strong visual identity and a seamless user experience.",
-    },
-    {
-      id: uuidv4(),
-      title: "Portfolio-beauty",
-      description:
-        "Here you will find works that reflect a unique approach and style.",
-      image: PortfolioImg,
-      technologies: ["React", "JavaScript", "SCSS / CSS"],
-      githubUrl: "https://github.com/vlad05x/portfolio-beauty",
-      demoUrl: "https://vlad05x.github.io/portfolio-beauty/",
-      longDescription:
-        "This project was developed as a freelance task to create a portfolio website for a beauty salon. Built using React and JavaScript, the website features a responsive design that ensures smooth functionality across all devices. It offers a modern, user-friendly interface, allowing clients to easily explore the salon's services and make appointments. The design focuses on enhancing the user experience while maintaining the salon's brand identity.",
-    },
-    {
-      id: uuidv4(),
-      title: "Movie-finder",
-      description:
-        "An app that helps you choose a movie to watch by generating random recommendations based on your preferences.",
-      image: MovieFinderIcon,
-      technologies: [
-        "React",
-        "TypeScript",
-        "MUI (Material UI)",
-        "Tailwind CSS",
-        "REST API",
-      ],
-      githubUrl: "https://github.com/vlad05x/movie-finder",
-      demoUrl: "https://vlad05x.github.io/movie-finder/",
-      longDescription:
-        "This app helps users discover new movies by providing random recommendations based on their preferences, such as genre or rating. Built with React, it offers a smooth, interactive experience. The app leverages an external API to fetch movie data, ensuring up-to-date and diverse suggestions. It’s perfect for those who want quick, personalized recommendations and enjoy exploring new films.",
-    },
-    {
-      id: uuidv4(),
-      title: "Trellotion",
-      description:
-        "An application that will help you with saving tasks you need to do.",
-      image: TrellotionImg,
-      technologies: [
-        "React",
-        "JavaScript",
-        "Redux",
-        "Electron.js",
-        "Node.js",
-        "Express.js",
-        "MongoDB",
-        "SCSS / CSS",
-        "Responsive",
-      ],
-      githubUrl: "https://github.com/vlad05x/Trellotion-v2",
-      demoUrl: "https://trellotion-v2.vercel.app/",
-      longDescription:
-        "This project integrates both a backend and a database to efficiently manage and store user data, tables, and task cards. The application is inspired by Trello, offering a similar board and card interface for task management. Users can create, organize, and track their tasks seamlessly. The backend is designed to handle user authentication and store data persistently, ensuring that your tasks are always available and up-to-date.",
-    },
-    {
-      id: uuidv4(),
-      title: "FoodDX",
-      description:
-        "Discover a unique combination of excellent cuisine and attentive service. Come and enjoy a unique gastronomic experience with us.",
-      image: FoodDxImg,
-      technologies: ["JavaScript", "HTML5", "CSS3", "Figma", "Responsive"],
-      githubUrl: "https://github.com/vlad05x/FoodDX",
-      demoUrl: "https://vlad05x.github.io/FoodDX/",
-      longDescription:
-        "Welcome to FoodDX, where culinary excellence meets unforgettable dining experiences. Our menu features a fusion of flavors crafted with the finest ingredients, designed to delight every palate. Whether you're here for a casual meal or a special celebration, our welcoming atmosphere and exceptional service will ensure your visit is memorable. Discover the taste of quality, only at FoodDX — where food is art",
-    },
-    {
-      id: uuidv4(),
-      title: "BasketballMania",
-      description:
-        "An online store entirely dedicated to basketball, where you'll find everything you need from professional gear to accessories for the game.",
-      image: BasketBallImg,
-      technologies: [
-        "HTML5",
-        "CSS3",
-        "JavaScript",
-        "Bootstrap",
-        "PHP",
-        "MySQL",
-        "Responsive",
-      ],
-      githubUrl: "https://github.com/vlad05x/basketball-shop",
-      demoUrl: "https://vlad05x.github.io/basketball-shop/",
-      longDescription:
-        "BasketballGear is an online store dedicated to basketball enthusiasts, offering a wide range of products from professional gear to essential accessories for the game. Whether you're a player, coach, or fan, you'll find everything you need to enhance your basketball experience. This platform is built using HTML5, CSS3, JavaScript, Bootstrap, PHP, and MySQL, ensuring a smooth and responsive shopping experience for all users.",
-    },
-    {
-      id: uuidv4(),
-      title: "Language-learning",
-      description:
-        "An app for learning new words that turns the memorization process into a fun and effective activity.",
-      image: LanguageLearnImg,
-      technologies: [
-        "React",
-        "TypeScript",
-        "MUI (Material UI)",
-        "Tailwind CSS",
-        "Responsive",
-      ],
-      githubUrl: "https://github.com/vlad05x/Language-learning",
-      demoUrl: "http://vlad05x.github.io/Language-learning/",
-      longDescription:
-        "This application helps users learn new words by transforming the memorization process into an engaging and effective experience. Through interactive exercises and a user-friendly interface, it enhances vocabulary retention while making learning enjoyable. Built with React, TypeScript, MUI (Material UI), and Tailwind CSS, the app ensures a smooth, responsive, and visually appealing experience. Whether you're expanding your vocabulary for personal growth or language learning, this tool makes the process seamless and fun.",
-    },
-    {
-      id: uuidv4(),
-      title: "Movie-app",
-      description: "An app that helps you find movies",
-      image: MovieAppIcon,
-      technologies: ["Next.js", "TypeScript", "CSS3", "Rest API", "Responsive"],
-      githubUrl: "https://github.com/vlad05x/movie-app",
-      demoUrl: "https://movie-app-chi-swart.vercel.app/",
-      longDescription:
-        "An application that helps you find movies by searching for titles and displaying all matching results. It provides a fast and efficient way to explore films, making it easy to discover the right one. Built with Next.js, TypeScript, CSS3, and REST API, the app delivers a seamless and responsive user experience. Whether you're looking for a specific movie or exploring different options, this tool makes searching effortless.",
-    },
-    {
-      id: uuidv4(),
-      title: "Di-Gi",
-      description:
-        "A full-cycle digital agency focused on the best results for our clients in marketing, sales and management.",
-      image: DiGiImg,
-      technologies: ["HTML5", "CSS3", "JavaScript", "Responsive"],
-      githubUrl: "https://github.com/vlad05x/movie-app",
-      demoUrl: "https://movie-app-chi-swart.vercel.app/",
-      longDescription:
-        "A full-cycle digital agency dedicated to delivering top results in marketing, sales, and business management. Our goal is to create impactful digital solutions that drive growth and enhance brand presence. This project was developed after completing a section of a professional course, applying industry best practices. Built with HTML5, CSS3, JavaScript, and Responsive design, the website ensures seamless performance across all devices while maintaining a sleek and modern look.",
-    },
-    {
-      id: uuidv4(),
-      title: "RGym",
-      description:
-        "Do you want to train? Join our community and start your journey to health and great shape today!",
-      image: RGymImg,
-      technologies: ["HTML5", "CSS3", "JavaScript", "Responsive"],
-      githubUrl: "https://github.com/vlad05x/RGym",
-      demoUrl: "https://vlad05x.github.io/RGym/",
-      longDescription:
-        "A modern and dynamic landing page designed for a gym, showcasing its facilities, services, and membership options. The website provides an engaging user experience, helping potential clients explore training programs, schedules, and pricing with ease. Built with HTML5, CSS3, JavaScript, and Responsive design, it ensures smooth navigation and optimal performance on all devices. Whether you're a fitness enthusiast or a beginner, this site delivers all the essential information to get started on your fitness journey.",
-    },
-    {
-      id: uuidv4(),
-      title: "Lyma",
-      description:
-        "We offer everything you need to create a unique look and care for your skin. Trust us and enjoy confidence and beauty every day!",
-      image: LymaImg,
-      technologies: ["HTML5", "CSS3", "JavaScript", "Responsive"],
-      githubUrl: "https://github.com/vlad05x/Lymo",
-      demoUrl: "https://vlad05x.github.io/Lymo/",
-      longDescription:
-        "We provide everything you need to craft a unique style and take care of your skin with high-quality products. Our selection ensures that you can enhance your beauty routine with confidence and ease. Trust us to deliver the best in skincare and personal care, helping you feel radiant and empowered every day.",
-    },
-  ];
 
-  const totalPages = Math.ceil(projects.length / projectsPerPage);
+  const totalPages = Math.ceil(data.length / projectsPerPage);
   const indexOfLastProject = currentPage * projectsPerPage;
   const indexOfFirstProject = indexOfLastProject - projectsPerPage;
-  const currentProjects = projects.slice(
+  const currentProjects = data.slice(
     indexOfFirstProject,
     indexOfLastProject
   );
@@ -330,7 +80,7 @@ export default function ProjectsSection() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {currentProjects.map((project, index) => (
             <motion.div
-              key={project.id}
+              key={project._id}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -342,7 +92,7 @@ export default function ProjectsSection() {
               >
                 <div className="relative h-48 overflow-hidden">
                   <Image
-                    src={project.image || "/placeholder.svg"}
+                    src={urlFor(project.image).url()}
                     alt={project.title}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"

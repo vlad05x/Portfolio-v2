@@ -11,13 +11,14 @@ import { client } from "@/sanity/lib/client";
 export default async function Home() {
   const aboutMe = await client.fetch(`*[_type == "aboutMe"][0]`)
   const services = await client.fetch(`*[_type == "services"][0]`)
+  const portfolio = await client.fetch(`*[_type == "portfolio"]`)
   
   return (
     <main className="min-h-screen bg-gradient-to-b from-black to-zinc-900">
       <HeroSection />
       <AboutSection data={aboutMe}/>
       <SkillsSection data={services}/>
-      <ProjectsSection />
+      <ProjectsSection data={portfolio}/>
       <TestimonialsSection />
       <ContactSection />
       <Footer />
