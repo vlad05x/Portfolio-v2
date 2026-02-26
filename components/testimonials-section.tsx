@@ -5,58 +5,26 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import Image from "next/image";
-import { v4 as uuidv4 } from "uuid";
+import { urlFor } from "@/sanity/lib/image";
+import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
 type Testimonial = {
   id: string | number;
   name: string;
   position: string;
   company: string;
-  avatar: string;
+  avatar?: {
+    image?: SanityImageSource;
+    url?: string;
+  };
   text: string;
 };
 
-export default function TestimonialsSection() {
+export default function TestimonialsSection({ data }: { data: Testimonial[] }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const testimonials: Testimonial[] = [
-    {
-      id: uuidv4(),
-      name: "Pasha Shavlenkov",
-      position: "Backend Laravel Developer",
-      company: "",
-      avatar:
-        "https://media.licdn.com/dms/image/v2/D4E35AQGQDkyJ5lasdA/profile-framedphoto-shrink_200_200/profile-framedphoto-shrink_200_200/0/1719447236109?e=1743933600&v=beta&t=5yF2K_rtdDrwc6h71VGxIL4Ii5jpkwopRzhY86F9M-g",
-      text: "I had the opportunity to work with Vlad and I can confidently say that he is an expert in React development. Vlad has deep knowledge of JavaScript and React. In addition to his technical skills, Vlad is also known for his communication skills, attention to detail, and ability to adapt quickly to new challenges. He is always result-oriented and works to achieve the best results in the team.",
-    },
-    {
-      id: uuidv4(),
-      name: "Victoria Mycolaivna",
-      position: "Chief Technology Officer at Dialogedge",
-      company: "From Fiverr",
-      avatar:
-        "https://media.licdn.com/dms/image/v2/D4D03AQGqvKQmPWo0tQ/profile-displayphoto-scale_100_100/B4DZg73FgNHwAc-/0/1753350955234?e=1759968000&v=beta&t=mmIrUsNsfzDSWFRdC2ZQ-oFhQFkjJxSvUo-a3YuMxpE",
-      text: "Really great experience! The freelancer totally got what I needed and delivered solid code fast. Super polite and easy to work with — communication was smooth the whole way through. Definitely exceeded my expectations. Would happily work with them again!",
-    },
-    {
-      id: uuidv4(),
-      name: "poschek's",
-      position: "Client from Fiverr",
-      company: "From Fiverr",
-      avatar:
-        "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/3be45b557361a209eab21d2bfe95e67f-1612372486948/c20513d4-f373-482f-bc1f-b0c89d34632a.png",
-      text: "This was my first job working with Vlad and it was very pleasent. I can truly recommend to work with him, awesome results, quick understanding of the project targets and goals. Was a pleasure working with him and he delivered as promised.",
-    },
-    {
-      id: uuidv4(),
-      name: "Kir K. (@seomarlboro)",
-      position: "Mobile UI Design, Spline Design Expert",
-      company: "Client from Fiverr",
-      avatar:
-        "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/eb8c0f434ceb73a01c9239dbb6b595eb-1594307496702/43e283a1-ee03-4af0-aea6-60dde9db0ba5.png",
-      text: "Vlad did everything professionally, faster than the agreed deadline, accepted criticism on small details without any problems and promptly corrected everything, I recommend cooperation.",
-    },
-  ];
+  const testimonials = data || [];
+  if (testimonials.length === 0) return null;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -72,7 +40,8 @@ export default function TestimonialsSection() {
 
   const prevTestimonial = () => {
     setActiveIndex(
-      (prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length
+      (prevIndex) =>
+        (prevIndex - 1 + testimonials.length) % testimonials.length,
     );
   };
 
@@ -107,7 +76,12 @@ export default function TestimonialsSection() {
                       <div className="flex items-center">
                         <div className="relative h-12 w-12 overflow-hidden rounded-full border-2 border-[#9ccc3d]">
                           <Image
-                            src={testimonial.avatar || "/placeholder.svg"}
+                            src={
+                              testimonial.avatar?.image
+                                ? urlFor(testimonial.avatar.image).url()
+                                : testimonial.avatar?.url ||
+                                  "/placeholder-logo.png"
+                            }
                             alt={testimonial.name}
                             fill
                             className="object-cover"

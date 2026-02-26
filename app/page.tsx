@@ -12,6 +12,7 @@ export default async function Home() {
   const aboutMe = await client.fetch(`*[_type == "aboutMe"][0]`)
   const services = await client.fetch(`*[_type == "services"][0]`)
   const portfolio = await client.fetch(`*[_type == "portfolio"]`)
+  const testimonials = await client.fetch(`*[_type == "testimonials"]`)
   
   return (
     <main className="min-h-screen bg-gradient-to-b from-black to-zinc-900">
@@ -19,7 +20,7 @@ export default async function Home() {
       <AboutSection data={aboutMe}/>
       <SkillsSection data={services}/>
       <ProjectsSection data={portfolio}/>
-      <TestimonialsSection />
+      <TestimonialsSection data={testimonials}/>
       <ContactSection />
       <Footer />
     </main>
