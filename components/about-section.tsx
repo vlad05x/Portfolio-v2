@@ -8,37 +8,6 @@ import { PortableText } from '@portabletext/react';
 
 export default function AboutSection({ data }: { data: any }) {
   const timelineItems = data.journey || [];
-  // const timelineItems = [
-  //   {
-  //     year: "9/2023 - Present",
-  //     title: "Bachelor - Computer Science",
-  //     company:
-  //       "Central Ukrainian National Technical University /Kropyvnytskyi, Ukraine",
-  //     description:
-  //       "During the past two years of my learning journey, I have significantly developed my skills, gaining proficiency in a range of programming languages including C++, C#, and Python, as well as in web development and database management. Additionally, I have focused on enhancing my soft skills to complement my technical expertise.",
-  //   },
-  //   {
-  //     year: "9/2021 - 5/2023",
-  //     title: "Computer Science",
-  //     company: "Lyceum Maximum / Kropyvnytskyi, Ukraine",
-  //     description:
-  //       "Studied in an advanced English and computer science class. Studied C++ and Frontend development course.",
-  //   },
-  //   {
-  //     year: "9/2023 - 2/2024",
-  //     title: "Student - Frontend React developer",
-  //     company: "Shpp IT-school / Kropyvnytskyi, Ukraine",
-  //     description:
-  //       "Throughout this course, I diligently strengthened my skills in React.js and JavaScript. By the end, I successfully developed the project 'Trellotion', showcasing my proficiency in these technologies.",
-  //   },
-  //   {
-  //     year: "9/2025 - continue",
-  //     title: "Freelance Frontend Developer",
-  //     company: "Remote / Worldwide",
-  //     description:
-  //       "As a freelance developer, I deliver modern and scalable web applications using React.js and TypeScript. I work with clients worldwide, focusing on clean architecture, responsive UI/UX, and seamless API integrations, while managing the full development cycle independently.",
-  //   },
-  // ];
 
   return (
     <section id="about" className="py-20">
@@ -97,7 +66,7 @@ export default function AboutSection({ data }: { data: any }) {
 
           <div className="relative mx-auto max-w-3xl">
             {/* Timeline line */}
-            <div className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-zinc-700"></div>
+            <div className="absolute left-4 top-0 h-full w-0.5 bg-zinc-700 md:left-1/2 md:-translate-x-1/2"></div>
 
             {/* Timeline items */}
             {timelineItems.map((item: any, index: number) => (
@@ -110,15 +79,15 @@ export default function AboutSection({ data }: { data: any }) {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <div
-                  className={`flex items-center ${index % 2 === 0 ? "flex-row-reverse" : ""
+                  className={`flex items-start md:items-center ${index % 2 === 0 ? "md:flex-row-reverse" : ""
                     }`}
                 >
-                  <div className="w-1/2 px-4"></div>
+                  <div className="hidden w-1/2 px-4 md:block"></div>
 
                   {/* Timeline dot */}
-                  <div className="absolute left-1/2 -ml-2.5 h-5 w-5 -translate-x-1/2 rounded-full bg-[#9ccc3d]"></div>
+                  <div className="absolute left-4 top-5 -ml-2.5 h-5 w-5 rounded-full bg-[#9ccc3d] md:left-1/2 md:-translate-x-1/2"></div>
 
-                  <div className="w-1/2 px-4">
+                  <div className="w-full pl-12 pr-1 md:w-1/2 md:px-4 md:pl-4">
                     <Card className="bg-zinc-800/50 border-zinc-700 overflow-hidden">
                       <div className="h-1 w-full bg-[#9ccc3d]"></div>
                       <CardContent className="p-4">
