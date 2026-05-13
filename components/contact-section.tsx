@@ -81,10 +81,10 @@ export default function ContactSection() {
                   <div className="flex items-center">
                     <Mail className="mr-3 h-5 w-5 text-[#9ccc3d]" />
                     <a
-                      href="mailto:organizm777alf@gmail.com"
+                      href="mailto:vlad05xdev@gmail.com"
                       className="text-zinc-300 hover:text-[#9ccc3d]"
                     >
-                      organizm777alf@gmail.com
+                      vlad05xdev@gmail.com
                     </a>
                   </div>
                   <div className="flex items-center">
