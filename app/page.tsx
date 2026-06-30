@@ -8,10 +8,12 @@ import Footer from "@/components/footer"
 
 import { client } from "@/sanity/lib/client";
 
+export const revalidate = 0;
+
 export default async function Home() {
   const aboutMe = await client.fetch(`*[_type == "aboutMe"][0]`)
   const services = await client.fetch(`*[_type == "services"][0]`)
-  const portfolio = await client.fetch(`*[_type == "portfolio"]`)
+  const portfolio = await client.fetch(`*[_type == "portfolio"] | order(orderRank asc)`)
   const testimonials = await client.fetch(`*[_type == "testimonials"]`)
   
   return (
